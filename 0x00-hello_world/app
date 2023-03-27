@@ -1,0 +1,18 @@
+#!/bin/bash
+echo "Enter file name"
+read filename
+echo "Enter command"
+read command
+touch $filename
+cat << EOF > $filename
+#!/bin/bash
+$command
+EOF
+git update-index --chmod=+x $filename
+nano $filename
+echo "Enter your commit: "
+read commit
+git add .
+git update-index --chmod=+x $filename
+git commit -m $commit
+git push
