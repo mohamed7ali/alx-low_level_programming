@@ -17,7 +17,7 @@ char *cap_string(char *entry)
 
 	for (index = 0; entry[index] != '\0'; index++)
 	{
-		if (entry[index] >= 'index' && entry[index] <= 'z')
+		if (entry[index] >= 'a' && entry[index] <= 'z')
 		{
 			entry[index] =  entry[index] - conversion;
 		}
