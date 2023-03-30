@@ -1,4 +1,14 @@
 #!/bin/bash
+echo "Enter file name"
+read filename
+echo "Enter command"
+read command
+touch $filename
+cat << EOF > $filename
+#include "main.h"
+$command
+EOF
+nano $filename
 echo "Enter your commit: "
 read commit
 git add .
