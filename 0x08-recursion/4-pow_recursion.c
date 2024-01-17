@@ -4,9 +4,9 @@
 /**
  * _pow_recursion - Returns the power of a number.
  *
- * @n: The number to calculate the power to.
+ * @x: The number to calculate the power to.
  *
- * @m: The power
+ * @y: The power
  *
  * Return: fact of a num
  */
