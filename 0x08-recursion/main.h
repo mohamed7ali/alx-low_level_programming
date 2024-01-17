@@ -16,5 +16,6 @@ void puts_half(char *str);
 void print_array(int *a, int n);
 char *_strcpy(char *dest, char *src);
 void _puts_recursion(char *s);
+void _print_rev_recursion(char *s);
 
 #endif
