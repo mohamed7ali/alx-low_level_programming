@@ -3,6 +3,7 @@
 
 /**
  * _pow_recursion - Returns the power of a number.
+ *
  * @n: The number to calculate the power to.
  *
  * @m: The power
@@ -11,12 +12,12 @@
  */
 int _pow_recursion(int x, int y);
 {
-	/* Base case: if n is negative, return -1 */
+	/* Base case: if y is negative, return -1 */
 	if (y < 0)
 	{
 		return (-1);
 	}
-	/* Base case: factorial of 1 is 1 */
+	/* Base case: power of 0 is 1 */
 	if (y == 0)
 	{
 		return (1);
