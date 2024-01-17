@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 
 void _puts_recursion(char *s)
 {
@@ -14,5 +15,10 @@ void _puts_recursion(char *s)
     putchar(*s);
     _puts_recursion(s + 1);
 
+}
+
+int main(void)
+{
+	return (0);
 }
 
