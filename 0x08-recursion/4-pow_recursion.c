@@ -23,5 +23,5 @@ int _pow_recursion(int x, int y);
 		return (1);
 	}
 
-	return (n * factorial(n, m - 1));
+	return (n * _pow_recursion(n, m - 1));
 }
