@@ -9,7 +9,12 @@
  */
 int factorial(int n)
 {
-	if (n == 1)
+    if (n < 0)
+    {
+        return (-1);
+    }
+/* Base case: fact of 1 is 1 */
+	if (n == 0)
 	{
 		return (1);
 	}
