@@ -3,7 +3,7 @@
 #include "main.h"
 
 
-/**
+/*
  * _put_recursion - Prints a string, followed by a new line
  *
  * @s: The string to be printed
@@ -13,9 +13,9 @@
  */
 
 
-void _puts_recursion(char *s) 
+void _puts_recursion(char *s)
 {
-    if (*s == '\0') 
+    if (*s == '\0')
     {
         putchar('\n');
         return;
