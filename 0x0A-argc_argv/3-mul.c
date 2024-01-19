@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 
 /**
  * main - The entry point of the program
@@ -20,5 +20,7 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
-	int result = argv[1] * argv[2];
+	int result = atoi(argv[1]) * atoi(argv[2]);
+
+	printf("%d\n", result);
 }
