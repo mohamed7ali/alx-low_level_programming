@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 	{
 		printf("%s\n", argv[x];
 
-		x += 1
+		x += 1;
 	}
 
 	return (0);
