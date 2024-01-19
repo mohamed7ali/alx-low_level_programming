@@ -1,4 +1,4 @@
 int main(int argc, char* argv[])
 {
-	print("%s", argv[0])
+	printf("%s", argv[0])
 }
