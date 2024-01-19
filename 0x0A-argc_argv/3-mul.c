@@ -13,14 +13,20 @@
 
 int main(int argc, char **argv)
 {
-	if (argc <= 1)
+	if (argc != 3)
 	{
-		printf("Error");
+		printf("Error\n");
 
 		return (1);
 	}
 
-	int result = atoi(argv[1]) * atoi(argv[2]);
 
-	printf("%d\n", result);
+	else
+	{
+		int result = atoi(argv[1]) * atoi(argv[2]);
+
+		printf("%d\n", result);
+	}
+
+	return (0);
 }
