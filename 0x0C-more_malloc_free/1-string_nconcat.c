@@ -56,11 +56,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	for (x = 0; x < (s1len + n); x++)
 	{
-		if (x < s1len && s1 != NULL)
-			nptr[x] = s1[x];
-		else if (s2 != NULL)
-			nptr[x] = s2[x - s1len];
+    		if (x < s1len - 1 && s1 != NULL)
+        		nptr[x] = s1[x];
+
+    		else if (s2 != NULL)
+        		nptr[x] = s2[x - s1len + 1];
 	}
+
 	nptr[x] = '\0';
 
 	return (nptr);
