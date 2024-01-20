@@ -18,43 +18,27 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *nptr;
-	unsigned int s1len, s2len, x;
+    char *nptr;
+    unsigned int s1len, s2len, x;
 
-	if (s1 != NULL)
-	{
-		s1len = strlen(s1) + 1;
-	}
+    // Treat NULL pointers as empty strings
+    s1 = s1 ? s1 : "";
+    s2 = s2 ? s2 : "";
 
-	if (s2 != NULL)
-	{
-		s2len = strlen(s2) + 1;
-	}
+    s1len = strlen(s1);  // Calculate length without adding 1 for '\0' yet
+    s2len = strlen(s2) + 1;  // Add 1 for '\0' only for s2
 
-	if (s2len <= n)
-	{
-		n = s2len;
-	}
+    if (s2len <= n) {
+        n = s2len;
+    }
 
-	if (s1 == NULL)
-	{
-		s1 = "";
-	}
+    nptr = malloc(s1len + n);  // Allocate space without extra '\0' for s1
 
-	if (s2 == NULL)
-	{
-		s2 = "";
-	}
+    if (nptr == NULL) {
+        return NULL;
+    }
 
-	nptr = malloc(s1len + n + 1);
-
-	if (nptr == NULL)
-	{
-		free(nptr);
-		return (NULL);
-	}
-
-	// Copy s1 characters directly, handling empty string case
+    // Copy s1 characters directly, handling empty string case
     for (x = 0; x < s1len; x++) {
         nptr[x] = s1[x];
     }
@@ -64,7 +48,5 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
         nptr[x + s1len] = s2[x];
     }
 
-	nptr[x] = '\0';
-
-	return (nptr);
+    return nptr;
 }
