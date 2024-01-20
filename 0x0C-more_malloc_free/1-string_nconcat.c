@@ -54,14 +54,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return (NULL);
 	}
 
-	for (x = 0; x < (s1len + n); x++)
-	{
-    		if (x < s1len - 1 && s1 != NULL)
-        		nptr[x] = s1[x];
+	// Copy s1 characters directly, handling empty string case
+    for (x = 0; x < s1len; x++) {
+        nptr[x] = s1[x];
+    }
 
-    		else if (s2 != NULL)
-        		nptr[x] = s2[x - s1len + 1];
-	}
+    // Copy s2 characters, including '\0' terminator
+    for (x = 0; x < n; x++) {
+        nptr[x + s1len] = s2[x];
+    }
 
 	nptr[x] = '\0';
 
