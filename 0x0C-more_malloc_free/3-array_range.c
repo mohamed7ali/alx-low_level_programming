@@ -22,12 +22,12 @@ int *array_range(int min, int max)
 
     for (x; x <= max; x++)
     {
-        count += 1
+        count += 1;
     }
 
     int *concat;
 
-    concat = malloc(count * sizeof(int))
+    concat = malloc(count * sizeof(int));
 
     if (concat == NULL)
 		return (NULL);
