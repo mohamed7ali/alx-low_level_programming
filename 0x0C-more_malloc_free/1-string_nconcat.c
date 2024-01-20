@@ -1,7 +1,27 @@
-#include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 #include "main.h"
+
+/**
+ * get_len - gets the length of a string
+ *
+ * @s: The string input to calculate the length of
+ *
+ * Return: The length of a string
+*/
+
+int get_len(char *s)
+{
+	int len = 0;
+
+	if (s != NULL)
+	{
+		while (*s++ != '\0')
+			len++;
+
+		s -= (len + 1);
+	}
+	return (len);
+}
 
 /**
  * string_nconcat -  concatenates two strings
@@ -18,35 +38,37 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-    char *nptr;
-    unsigned int s1len, s2len, x;
+	char *nptr;
+	unsigned int s1len, s2len, x;
 
-    // Treat NULL pointers as empty strings
-    s1 = s1 ? s1 : "";
-    s2 = s2 ? s2 : "";
+	s1len = get_len(s1);
+	s2len = get_len(s2);
 
-    s1len = strlen(s1);  // Calculate length without adding 1 for '\0' yet
-    s2len = strlen(s2) + 1;  // Add 1 for '\0' only for s2
+	if (s2len < n)
+		n = s2len;
 
-    if (s2len <= n) {
-        n = s2len;
-    }
+	if (s1 == NULL)
+		s1 = '\0';
 
-    nptr = malloc(s1len + n);  // Allocate space without extra '\0' for s1
+	if (s2 == NULL)
+		s2 = '\0';
 
-    if (nptr == NULL) {
-        return NULL;
-    }
+	nptr = malloc(s1len + n + 1);
 
-    // Copy s1 characters directly, handling empty string case
-    for (x = 0; x < s1len; x++) {
-        nptr[x] = s1[x];
-    }
+	if (nptr == NULL)
+	{
+		free(nptr);
+		return (NULL);
+	}
 
-    // Copy s2 characters, including '\0' terminator
-    for (x = 0; x < n; x++) {
-        nptr[x + s1len] = s2[x];
-    }
+	for (x = 0; x < (s1len + n); x++)
+	{
+		if (x < s1len && s1 != NULL)
+			nptr[x] = s1[x];
+		else if (s2 != NULL)
+			nptr[x] = s2[x - s1len];
+	}
+	nptr[x] = '\0';
 
-    return nptr;
+	return (nptr);
 }
