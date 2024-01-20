@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -20,8 +21,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *nptr;
 	unsigned int s1len, s2len, x;
 
-	s1len = strlen(s1);
-	s2len = strlen(s2);
+	s1len = strlen(s1) + 1;
+	s2len = strlen(s2) + 1;
 
 	if (s2len < n)
 		n = s2len;
